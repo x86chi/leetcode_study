@@ -1,7 +1,13 @@
 class Solution:
-    def twoSum(self, nums: List[int], target: int) -> List[int]:
-        length = len(nums)
-        for index in range(length-1):
-            for subIndex in range(index+1, length):
-                if nums[index] + nums[subIndex] == target:
-                    return [index, subIndex]
+    def twoSum(self, nums, target):
+        required = {}
+        for index in range(len(nums)):
+            left = target - nums[index]
+            if left in required:
+                return [required[left], index]
+            required[nums[index]] = index
+
+
+def test_two_sum():
+    instance = Solution()
+    assert instance.twoSum([2, 7, 11, 15], 9) == [0, 1]
