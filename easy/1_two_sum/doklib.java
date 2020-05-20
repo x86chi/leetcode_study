@@ -1,7 +1,7 @@
 //https://leetcode.com/problems/two-sum/submissions/
 //Time Complexity: O(n), Space Complexity: O(n)
-//Runtime: 56 ms, faster than 81.13% of JavaScript online submissions for Two Sum.
-//Memory Usage: 35.7 MB, less than 16.53% of JavaScript online submissions for Two Sum.
+//Runtime: 5 ms, faster than 44.08% of Java online submissions for Two Sum.
+//Memory Usage: 41.8 MB, less than 5.65% of Java online submissions for Two Sum.
 /**
 * 필사 진행
 */
