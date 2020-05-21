@@ -29,7 +29,4 @@ function addTwoNumbers(first, second, carry) {
   return null;
 }
 
-module.exports = {
-  ListNode,
-  addTwoNumbers,
-};
+module.exports = { ListNode, addTwoNumbers };
