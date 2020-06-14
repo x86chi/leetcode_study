@@ -3,36 +3,30 @@
  * @return {number}
  */
 function lengthOfLIS(nums) {
-  if (nums.length === 0) return 0;
-  const table = new Array(nums.length).fill(0);
-  table[0] = nums[0];
-  let length = 1;
-
+  if (nums.length === 0) return 0
+  const table = new Array(nums.length).fill(1)
+  let length = 1
   for (let k = 1; k < nums.length; k++) {
-    if (nums[k] < table[0]) {
-      table[0] = nums[k];
-      continue;
-    }
-    if (nums[k] > table[length - 1]) {
-      table[length] = nums[k];
-      length++;
-      continue;
-    }
-    table[lowerBound(table, length - 1, nums[k])] = nums[k];
+    table[k] = 1
+    const lower = lowerBound(nums, k - 1, nums[k])
+    if (nums[lower] > nums[k]) continue
+    table[k] = table[lower] + 1
+    length = Math.max(length, table[k])
   }
-  return length;
+
+  return length
 }
 
 function lowerBound(array, end, key) {
   let start = 0,
-    mid;
+    mid
 
   while (end - start > 0) {
-    mid = Math.floor((start + end) / 2);
-    if (array[mid] < key) start = mid + 1;
-    else end = mid;
+    mid = Math.floor((start + end) / 2)
+    if (array[mid] < key) start = mid + 1
+    else end = mid
   }
-  return end;
+  return end
 }
 
-module.exports = { lengthOfLIS, lowerBound };
+module.exports = { lengthOfLIS, lowerBound }
